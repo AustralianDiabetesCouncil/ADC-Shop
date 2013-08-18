@@ -1,0 +1,344 @@
+/* ===========================================================================
+  Overides
+=========================================================================== */
+
+html, body {
+	background: $bodybg;
+}
+
+.container-body {
+	box-shadow: none;
+	padding: 20px 20px 40px;
+	border: 1px solid $dark-border;
+	border-bottom: 0;
+	background: white;
+}
+
+.carousel {
+	@include box-shadow(none);
+}
+
+
+/* ===========================================================================
+  Header
+=========================================================================== */
+
+.header-wrap {
+	position: relative;
+	background: white;
+	z-index: 2;
+	padding: 0 25px; // overide
+	margin-top: -20px;
+}
+
+#header {
+	height: 67px;
+	padding: 0;
+	position: relative;
+	margin: 0 auto;
+
+	&:after {
+		clear: both; 
+		display: table;
+		content: '';
+	}
+}
+
+/* ===========================================================================
+  Logo
+=========================================================================== */
+
+.logo {
+	position: relative;
+	float: left;
+	margin: 0;
+
+	a {
+		position: relative;
+		text-indent: -9999px;
+		display: block;
+		height: 140px;
+		width: 105px;
+		background-color: transparent;
+		background-image: url(http://www.australiandiabetescouncil.com/blog/wp-content/themes/ADC2/images/logo-desktop.png);
+		background-position: center;
+	}
+}
+
+// Retina logo stuff
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) { 
+	.logo a {
+		background-image: url(http://www.australiandiabetescouncil.com/blog/wp-content/themes/ADC2/images/logo-desktop-2x.png);
+		background-position: center;
+		background-size: 105px auto;
+	}
+}
+
+/* ===========================================================================
+  Search
+=========================================================================== */
+
+.search {
+
+}
+
+form {
+	margin: 0;
+	position: relative;
+	overflow: hidden;
+}
+
+.search-wrap {
+	float: left;
+	position: relative;
+	width: 45%;
+	max-width: 510px;
+	margin: 18px 25px 0;
+}
+
+.screen-reader {
+	display: none;
+}
+
+#q {
+	-webkit-appearance: none;
+	@include border-radius(4px);
+	box-shadow: none;
+	border: 1px solid #b1b1b1;
+	padding: 6px 50px 6px 10px;
+	font-size: 13px;
+	width: 100%;
+	max-width: 100%;
+	margin: 0;
+	@include transition(all 0.3s ease);
+	height: auto; // this is an overide
+	line-height: 1.3em;
+	@include box-sizing(border-box);
+}
+
+#q:focus {
+	border: 1px solid #005e9f;
+	outline: none;
+}
+
+.search .search-wrap #search-button {
+	position: absolute;
+	right: 0;
+	top: 0;
+	border: 0;
+	outline: 0;
+	color: white;
+	height: 30px;
+	width: 40px;
+	margin: 0;
+	padding: 0 10px;
+	@include border-radius(0); // this is an overide
+	@include border-top-right-radius(4px);
+	@include border-bottom-right-radius(4px);
+	border: 1px solid #2F5BB7;
+	text-indent: -9999px;
+
+	&:hover {
+		@include background-image(linear-gradient(#00bce9, lighten(#005e9f, 7%)));
+		// #0073c3 
+		filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr=#00bce9, endColorstr=#0073c3);
+		-ms-filter: "progid:DXImageTransform.Microsoft.gradient (GradientType=0, startColorstr=#00bce9, endColorstr=#0073c3)";
+	}
+}
+
+.search-wrap input[type="submit"], #search-button {
+	background: #00bce9;
+	@include background-image(linear-gradient(#00bce9, #005e9f));
+	filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr=#00bce9, endColorstr=#005e9f);
+	-ms-filter: "progid:DXImageTransform.Microsoft.gradient (GradientType=0, startColorstr=#00bce9, endColorstr=#005e9f)";
+}
+
+.search-icon {
+	@include background-image(url(http://www.australiandiabetescouncil.com/blog/wp-content/themes/ADC2/images/search-icon.png));
+	background-repeat: no-repeat;
+	background-position: center;
+	background-color: transparent;
+	width: 20px;
+	height: 29px;
+	position: absolute;
+	right: 10px;
+	top: 0;
+	z-index: 30;
+
+	&:hover {
+		cursor: pointer;
+
+		+ #search-button {
+			@include background-image(linear-gradient(#00bce9, lighten(#005e9f, 7%)));
+			// #0073c3 is hover colour
+			filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr=#00bce9, endColorstr=#0073c3);
+			-ms-filter: "progid:DXImageTransform.Microsoft.gradient (GradientType=0, startColorstr=#00bce9, endColorstr=#0073c3)";
+		}
+	}
+}
+
+// Retina logo stuff
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) { 
+	.search-icon {
+		@include background-image(url(http://www.australiandiabetescouncil.com/blog/wp-content/themes/ADC2/images/search-icon-2x.png));
+		background-size: 15px;
+		background-repeat: no-repeat;
+		background-position: center;
+		background-color: transparent;
+	}
+}
+
+/* ===========================================================================
+  All Navs
+=========================================================================== */
+
+.main-nav-toggle, #secondary-nav, #main-nav {
+	position: relative;
+  
+	ul {
+		margin: 0;
+		padding: 0;
+		list-style: none
+	}	
+
+	li {
+		display: inline-block;
+	}
+
+	a {
+		display: inline-block;
+		color: #5a5a5a;
+		text-decoration: none;
+		font-size: 11px;
+		@include text-shadow(0 1px 0 #fff);
+	}
+}
+
+/* ===========================================================================
+  Secondary Nav
+=========================================================================== */
+
+#secondary-nav {
+	float: right;
+	margin-top: 15px;
+
+	span {
+		font-size: 14px;
+	}
+
+	a {
+		padding: 8px 15px;
+		font-size: 12px;
+		font-weight: normal;
+	}
+
+	a.donate {
+		background: #8fd1a5;
+		@include background-image(linear-gradient(#8fd1a5, #41a563));
+		filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr=#8fd1a5, endColorstr=#41a563);
+		-ms-filter: "progid:DXImageTransform.Microsoft.gradient (GradientType=0, startColorstr=#8fd1a5, endColorstr=#41a563)";
+		color: white;
+		@include text-shadow(0 1px 0 darken(#41a563, 5%));
+		@include border-radius(4px);
+		margin-left: 18px;
+		border: 1px solid #379758;
+		font-size: 14px;
+		font-weight: 400;
+
+		&:hover {
+			background: #41a563;
+			@include background-image(linear-gradient(#8fd1a5, lighten(#41a563, 6%)));
+			// #4cb971 is hover colour
+			filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr=#8fd1a5, endColorstr=#4cb971);
+			-ms-filter: "progid:DXImageTransform.Microsoft.gradient (GradientType=0, startColorstr=#8fd1a5, endColorstr=#4cb971)";
+		}
+	}
+}
+
+/* ===========================================================================
+  Main Nav
+=========================================================================== */
+
+.main-nav-toggle {
+	float: left;
+	height: 67px;
+	display: none;
+
+	a {
+		padding: 0 14px;
+		line-height: 67px;
+		background: $primary;
+		@include background-image(linear-gradient(#00bce9, #005e9f));
+		filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr=#00bce9, endColorstr=#005e9f);
+		-ms-filter: "progid:DXImageTransform.Microsoft.gradient (GradientType=0, startColorstr=#00bce9, endColorstr=#005e9f)";
+		color: white;
+		text-shadow: none;
+
+		&:hover {
+			@include background-image(linear-gradient(#00bce9, lighten(#005e9f, 7%)));
+			filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr=#00bce9, endColorstr=#0073c3);
+			-ms-filter: "progid:DXImageTransform.Microsoft.gradient (GradientType=0, startColorstr=#00bce9, endColorstr=#0073c3)";
+		}
+
+		@media all and (max-width: 940px) {
+			padding: 0 10px;
+			line-height: 28px;
+			margin-top: 18px;
+			font-size: 14px;
+			border: 1px solid #2F5BB7;
+			@include border-radius(4px);
+		}
+	}
+}
+
+.main-nav-wrap {
+	background: #0088B2;
+	position: relative;
+	z-index: 1;
+	@include transition(all 0.3s ease);
+	margin-bottom: 20px; // overide
+	height: 48px;
+
+	&:after {
+		clear: both;
+		content: '';
+		display: table;
+	}
+
+	&.show {
+		margin-top: 0;
+	}
+}
+
+#main-nav {
+	height: 48px;
+	position: relative;
+	width: 100%;
+	margin: 0 auto;
+	margin-left: 140px;
+
+	&:after {
+		clear: both; 
+		display: table;
+		content: '';
+	}
+}
+
+#main-nav li {
+
+}
+
+#main-nav a {
+	line-height: 48px;
+	padding: 0 17px;
+	color: white;
+	@include text-shadow(0 1px 0 #155375);
+	text-transform: capitalize;
+	font-size: 15px;
+	font-weight: normal;
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+	&:hover {
+		opacity: 0.8;
+	}
+}
